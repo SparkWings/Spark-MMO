@@ -1,0 +1,12 @@
+name: SparkMMO
+main: org.jbltd.mmo.core.Main
+version: 1.0
+author: SparkWings
+
+commands:
+    chat:
+    broadcast:
+    message:
+        aliases: [message, msg, m, whisper, w, tell]
+    reply:
+        aliases: [reply, r]
