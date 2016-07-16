@@ -17,6 +17,7 @@ import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
 import org.jbltd.mmo.core.util.UtilPacket;
+import org.jbltd.mmo.guilds.Guild;
 
 public class BasicListener implements Listener {
 
@@ -47,13 +48,26 @@ public class BasicListener implements Listener {
     @EventHandler
     public void handleChat(AsyncPlayerChatEvent e) {
 
+	boolean guild = false;
+	String tag = "";
+
+	for (Guild g : Guild.allGuilds) {
+	    if (g.getGuildMembers().contains(e.getPlayer().getUniqueId())) {
+		guild = true;
+		tag = g.getGuildTag();
+	    } else {
+		guild = false;
+	    }
+	}
+
+	if (guild == true) {
+	    e.setFormat(ChatColor.AQUA + tag + ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.GRAY
+		    + ": " + ChatColor.WHITE + e.getMessage());
+	    return;
+	}
+
 	e.setFormat(
 		ChatColor.YELLOW + e.getPlayer().getName() + ChatColor.GRAY + ": " + ChatColor.WHITE + e.getMessage());
-
-	e.setCancelled(true);
-
-	Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(e.getFormat().toString()));
-
     }
 
     @EventHandler
@@ -81,7 +95,6 @@ public class BasicListener implements Listener {
 	LivingEntity en = (LivingEntity) e.getEntity();
 	double perc = en.getHealth() / en.getMaxHealth();
 
-	
 	if (perc >= .80) {
 	    e.getEntity().setCustomName(ChatColor.GREEN + "▌▌▌▌▌");
 	}

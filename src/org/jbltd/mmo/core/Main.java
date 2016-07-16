@@ -15,6 +15,7 @@ import org.jbltd.mmo.core.chat.MessageCommand;
 import org.jbltd.mmo.core.util.UpdateTask;
 import org.jbltd.mmo.core.util.UtilPacket;
 import org.jbltd.mmo.core.util.listeners.BasicListener;
+import org.jbltd.mmo.guilds.GuildCommand;
 import org.jbltd.mmo.mobs.CustomMobHandler;
 
 import net.minecraft.server.v1_8_R3.MinecraftServer;
@@ -38,11 +39,14 @@ public class Main extends JavaPlugin {
 	
 	getServer().getPluginManager().registerEvents(new BasicListener(), this);
 	getServer().getPluginManager().registerEvents(new CustomMobHandler(), this);
+	getServer().getPluginManager().registerEvents(new GuildCommand(), this);
 
 	getCommand("broadcast").setExecutor(new Broadcast());
 	getCommand("chat").setExecutor(new ChatClear());
 	getCommand("message").setExecutor(new MessageCommand());
 	getCommand("reply").setExecutor(new MessageCommand());
+	getCommand("guild").setExecutor(new GuildCommand());
+	getCommand("escape").setExecutor(new GuildCommand());
 	
 	new UpdateTask(this);
 

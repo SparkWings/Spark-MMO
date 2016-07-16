@@ -10,3 +10,6 @@ commands:
         aliases: [message, msg, m, whisper, w, tell]
     reply:
         aliases: [reply, r]
+    guild:
+        aliases: [guild, g, faction, factions, guilds, f, clan, c]
+    escape:
