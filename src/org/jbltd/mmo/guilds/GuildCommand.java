@@ -15,8 +15,6 @@ import org.jbltd.mmo.core.util.F;
 
 public class GuildCommand implements CommandExecutor, Listener {
 
-    private List<UUID> phase1 = new ArrayList<UUID>(), phase2 = new ArrayList<UUID>(), phase3 = new ArrayList<UUID>();
-
     private static final String PHASE1_MESSAGE = "Please type the name of the guild you wish to create.";
     private static final String PHASE2_MESSAGE = "Please type the description of the guild you wish to create (Max 1 Line).";
     private static final String PHASE3_MESSAGE = "Please enter the TAG of your guild (This will be your prefix in chat).";
@@ -40,28 +38,30 @@ public class GuildCommand implements CommandExecutor, Listener {
 		    continue;
 	    }
 
-	    phase1.add(p.getUniqueId());
+	    Guild.phase1.add(p.getUniqueId());
+	    System.out.println("put player in list");
 	    p.sendMessage(F.info("Guilds", false,
 		    "You have entered guild creation mode. Follow the instructions you are prompted in the chat to create your new guild."));
 
 	    // PHASE 1
 	    p.sendMessage(PHASE1_MESSAGE);
+	    return false;
 
 	}
 
 	if (cmd.getName().equalsIgnoreCase("escape")) {
 
-	    if (phase1.contains(p.getUniqueId())) {
-		phase1.remove(p.getUniqueId());
+	    if (Guild.phase1.contains(p.getUniqueId())) {
+		Guild.phase1.remove(p.getUniqueId());
 		p.sendMessage(ESCAPE_MESSAGE);
 		return false;
 
-	    } else if (phase2.contains(p.getUniqueId())) {
-		phase2.remove(p.getUniqueId());
+	    } else if (Guild.phase2.contains(p.getUniqueId())) {
+		Guild.phase2.remove(p.getUniqueId());
 		p.sendMessage(ESCAPE_MESSAGE);
 		return false;
-	    } else if (phase3.contains(p.getUniqueId())) {
-		phase3.remove(p.getUniqueId());
+	    } else if (Guild.phase3.contains(p.getUniqueId())) {
+		Guild.phase3.remove(p.getUniqueId());
 		p.sendMessage(ESCAPE_MESSAGE);
 		return false;
 	    } else {
@@ -85,9 +85,8 @@ public class GuildCommand implements CommandExecutor, Listener {
 	String tag = "";
 
 	// PHASE 1
-	if (phase1.contains(player.getUniqueId())) {
+	if (Guild.phase1.contains(player.getUniqueId())) {
 	    // Begin
-	    System.out.println("Beginning phase1");
 
 	    e.setCancelled(true);
 	    name = e.getMessage().trim().replace(" ", "");
@@ -98,32 +97,34 @@ public class GuildCommand implements CommandExecutor, Listener {
 		    player.sendMessage(PHASE1_MESSAGE);
 		    System.err.println("guild name already exists");
 		} else {
-		    player.sendMessage(F.info("Guilds", false, "You have set your clan name to: " + F.GOLD + name));
-		    phase1.remove(player.getUniqueId());
-		    phase2.add(player.getUniqueId());
-		    player.sendMessage(PHASE2_MESSAGE);
-		    // BEGIN PHASE 2
-		    System.out.println("BEginning phase 2");
+		    continue;
 		}
 	    }
+
+	    player.sendMessage(F.info("Guilds", false, "You have set your clan name to: " + F.GOLD + name));
+	    Guild.phase1.remove(player.getUniqueId());
+	    Guild.phase2.add(player.getUniqueId());
+	    player.sendMessage(PHASE2_MESSAGE);
+	    // BEGIN PHASE 2
+	    System.out.println("BEginning phase 2");
 
 	}
 
 	// PHASE 2
-	else if (phase2.contains(player.getUniqueId())) {
+	else if (Guild.phase2.contains(player.getUniqueId())) {
 
 	    e.setCancelled(true);
 
 	    description = e.getMessage();
 	    player.sendMessage(
 		    F.info("Guilds", false, "You have set your clan description to \"" + F.GOLD + description + "\"."));
-	    phase2.remove(player.getUniqueId());
-	    phase3.add(player.getUniqueId());
+	    Guild.phase2.remove(player.getUniqueId());
+	    Guild.phase3.add(player.getUniqueId());
 	    player.sendMessage(PHASE3_MESSAGE);
 	    // BEGIN PHASE 3
 	}
 
-	else if (phase3.contains(player.getUniqueId())) {
+	else if (Guild.phase3.contains(player.getUniqueId())) {
 
 	    e.setCancelled(true);
 
@@ -135,21 +136,23 @@ public class GuildCommand implements CommandExecutor, Listener {
 		if (gtag == tag) {
 		    player.sendMessage(F.error("Guilds", "That guild tag is already taken."));
 		} else {
-		    player.sendMessage(F.info("Guilds", false, "You have set your clan tag to: " + tag));
-
-		    Guild newGuild = new Guild(name, new String[] {
-			    description
-		    }, tag, player, new ArrayList<UUID>());
-		    newGuild.getGuildMembers().add(player.getUniqueId());
-		    Guild.allGuilds.add(newGuild);
-
-		    player.sendMessage(F.info("Guilds", false,
-			    "You created the Guild [" + F.GOLD + newGuild.getGuildName() + F.GREEN + "]"));
-		    phase3.remove(player.getUniqueId());
-		    player.sendMessage(F.info("Guilds", false, "You have exited guild creation mode."));
+		    continue;
 
 		}
 	    }
+
+	    player.sendMessage(F.info("Guilds", false, "You have set your clan tag to: " + tag));
+
+	    Guild newGuild = new Guild(name, new String[] {
+		    description
+	    }, tag, player, new ArrayList<UUID>());
+	    newGuild.getGuildMembers().add(player.getUniqueId());
+	    Guild.allGuilds.add(newGuild);
+
+	    player.sendMessage(F.info("Guilds", false,
+		    "You created the Guild [" + F.GOLD + newGuild.getGuildName() + F.GREEN + "]"));
+	    Guild.phase3.remove(player.getUniqueId());
+	    player.sendMessage(F.info("Guilds", false, "You have exited guild creation mode."));
 
 	} else {
 	    return;
