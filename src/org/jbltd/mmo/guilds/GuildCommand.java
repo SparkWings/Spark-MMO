@@ -15,14 +15,12 @@ import org.jbltd.mmo.core.util.F;
 
 public class GuildCommand implements CommandExecutor, Listener {
 
-    private List<UUID> phase1, phase2, phase3 = new ArrayList<UUID>();
+    private List<UUID> phase1 = new ArrayList<UUID>(), phase2 = new ArrayList<UUID>(), phase3 = new ArrayList<UUID>();
 
     private static final String PHASE1_MESSAGE = "Please type the name of the guild you wish to create.";
     private static final String PHASE2_MESSAGE = "Please type the description of the guild you wish to create (Max 1 Line).";
     private static final String PHASE3_MESSAGE = "Please enter the TAG of your guild (This will be your prefix in chat).";
     private static final String ESCAPE_MESSAGE = F.RED + "You have exited guild creation mode.";
-
-  
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
@@ -49,8 +47,6 @@ public class GuildCommand implements CommandExecutor, Listener {
 	    // PHASE 1
 	    p.sendMessage(PHASE1_MESSAGE);
 
-	    
-	    
 	}
 
 	if (cmd.getName().equalsIgnoreCase("escape")) {
@@ -92,8 +88,7 @@ public class GuildCommand implements CommandExecutor, Listener {
 	if (phase1.contains(player.getUniqueId())) {
 	    // Begin
 	    System.out.println("Beginning phase1");
-	    
-	    
+
 	    e.setCancelled(true);
 	    name = e.getMessage().trim().replace(" ", "");
 
@@ -115,7 +110,7 @@ public class GuildCommand implements CommandExecutor, Listener {
 	}
 
 	// PHASE 2
-	if (phase2.contains(player.getUniqueId())) {
+	else if (phase2.contains(player.getUniqueId())) {
 
 	    e.setCancelled(true);
 
@@ -128,7 +123,7 @@ public class GuildCommand implements CommandExecutor, Listener {
 	    // BEGIN PHASE 3
 	}
 
-	if (phase3.contains(player.getUniqueId())) {
+	else if (phase3.contains(player.getUniqueId())) {
 
 	    e.setCancelled(true);
 
@@ -156,6 +151,8 @@ public class GuildCommand implements CommandExecutor, Listener {
 		}
 	    }
 
+	} else {
+	    return;
 	}
 
     }
