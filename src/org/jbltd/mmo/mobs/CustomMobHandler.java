@@ -1,5 +1,7 @@
 package org.jbltd.mmo.mobs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.DyeColor;
@@ -13,11 +15,10 @@ import org.jbltd.mmo.core.util.UtilMath;
 
 public class CustomMobHandler implements Listener {
 
-    /**
-     * 
-     * TODO Mob limit
-     */
-    
+    public List<UUID> zombie = new ArrayList<>();
+    public List<UUID> skele = new ArrayList<>();
+    public List<UUID> pig = new ArrayList<>();
+
     @EventHandler
     public void spawnMobs(UpdateEvent e) {
 
@@ -36,8 +37,10 @@ public class CustomMobHandler implements Listener {
 		int value = UtilMath.random(1, 6);
 
 		while (value >= 1) {
-		    value--;
-		    new CustomZombie(b.getLocation().add(0, 2, 0));
+		    while (zombie.size() <= 40) {
+			value--;
+			new CustomZombie(b.getLocation().add(0, 2, 0));
+		    }
 		}
 
 		break;
@@ -48,23 +51,26 @@ public class CustomMobHandler implements Listener {
 		int value2 = UtilMath.random(1, 3);
 
 		while (value2 >= 1) {
-		    value2--;
-		    new CustomSkeleton(b.getLocation().add(0, 2, 0));
-		}
+		    while (skele.size() <= 30) {
+			value2--;
 
+			new CustomSkeleton(b.getLocation().add(0, 2, 0));
+		    }
+		}
 		break;
 
 	    case YELLOW:
 
-		new CustomPigZombie(b.getLocation().add(0, 2, 0));
+		while (pig.size() <= 20) {
+		    new CustomPigZombie(b.getLocation().add(0, 2, 0));
 
-		break;
-
+		    break;
+		}
 	    case RED:
 		// boss
 
 		break;
-	   
+
 	    default:
 		break;
 
