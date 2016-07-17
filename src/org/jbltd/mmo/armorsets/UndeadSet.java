@@ -5,8 +5,8 @@ import java.util.Arrays;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.ItemFactory;
@@ -43,32 +43,55 @@ public class UndeadSet extends ArmorSet {
 
     public UndeadSet() {
 	super(HELMET, CHEST, PANTS, BOOTS);
-	
+
     }
 
     @EventHandler
-    public void listen(InventoryClickEvent e) {
-	
-	Player p = (Player) e.getWhoClicked();
-	
-	if(e.getSlotType() == InventoryType.SlotType.ARMOR)
-	{
-	    if(p.getInventory().getHelmet() == HELMET)
-	    {
-		if(p.getInventory().getChestplate() == CHEST)
-		{
-		    if(p.getInventory().getLeggings() == PANTS)
-		    {
-			if(p.getInventory().getBoots() == BOOTS)
-			{
-			    System.out.println("Set equipped.");
-			}
-		    }  
+    public void onJoin(PlayerJoinEvent e) {
+
+	e.getPlayer().getInventory().addItem(HELMET);
+	e.getPlayer().getInventory().addItem(CHEST);
+	e.getPlayer().getInventory().addItem(PANTS);
+	e.getPlayer().getInventory().addItem(BOOTS);
+
+    }
+
+    @EventHandler
+    public void listen(PlayerMoveEvent e) {
+
+	Player p = e.getPlayer();
+
+	if (p.getInventory().getHelmet() == null) {
+	    p.setMaxHealth(20.0D);
+	    return;
+	}
+	if (p.getInventory().getChestplate() == null) {
+	    p.setMaxHealth(20.0D);
+	    return;
+	}
+	if (p.getInventory().getLeggings() == null) {
+	    p.setMaxHealth(20.0D);
+	    return;
+	}
+	if (p.getInventory().getBoots() == null) {
+	    p.setMaxHealth(20.0D);
+	    return;
+	}
+
+	if (p.getInventory().getHelmet().getType() == Material.CHAINMAIL_HELMET) {
+	    if (p.getInventory().getChestplate().getType() == Material.CHAINMAIL_CHESTPLATE) {
+		if (p.getInventory().getLeggings().getType() == Material.CHAINMAIL_LEGGINGS) {
+		    if (p.getInventory().getBoots().getType() == Material.CHAINMAIL_BOOTS) {
+			p.setMaxHealth(30.0D);
+		    }
 		}
 	    }
 	}
-	else return;
-	
+
+	else {
+	    p.setMaxHealth(20.0D);
+	}
+
     }
 
 }

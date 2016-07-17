@@ -117,7 +117,7 @@ public class GuildCommand implements CommandExecutor, Listener {
 
 	    description = e.getMessage();
 	    player.sendMessage(
-		    F.info("Guilds", false, "You have set your clan description to \"" + F.GOLD + description + "\"."));
+		    F.info("Guilds", false, "You have set your clan description to \"" + F.GOLD + description + F.GREEN + "\"."));
 	    Guild.phase2.remove(player.getUniqueId());
 	    Guild.phase3.add(player.getUniqueId());
 	    player.sendMessage(PHASE3_MESSAGE);
@@ -150,7 +150,7 @@ public class GuildCommand implements CommandExecutor, Listener {
 	    Guild.allGuilds.add(newGuild);
 
 	    player.sendMessage(F.info("Guilds", false,
-		    "You created the Guild [" + F.GOLD + newGuild.getGuildName() + F.GREEN + "]"));
+		    "You created the Guild [" + F.GOLD + name + F.GREEN + "]"));
 	    Guild.phase3.remove(player.getUniqueId());
 	    player.sendMessage(F.info("Guilds", false, "You have exited guild creation mode."));
 

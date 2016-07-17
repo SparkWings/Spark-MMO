@@ -51,7 +51,7 @@ public class UtilPacket {
 	    @Override
 	    public void run() {
 		
-		sendActionBarMessage(player, ChatColor.RED+"♥: "+ Math.floor(player.getHealth() / 2));
+		sendActionBarMessage(player, ChatColor.RED+"♥: "+ player.getHealth());
 		
 	    }
 	}, 0L, 40L);

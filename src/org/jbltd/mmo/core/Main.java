@@ -43,7 +43,7 @@ public class Main extends JavaPlugin {
 	getServer().getPluginManager().registerEvents(new GuildCommand(), this);
 	
 
-	getServer().getPluginManager().registerEvents(new UndeadSet(), this);
+	//getServer().getPluginManager().registerEvents(new UndeadSet(), this);
 	
 	
 	getCommand("broadcast").setExecutor(new Broadcast());

@@ -2,7 +2,10 @@ package org.jbltd.mmo.core.util.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,6 +16,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.event.world.ChunkLoadEvent;
+import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
@@ -117,4 +122,29 @@ public class BasicListener implements Listener {
 
     }
 
+    @EventHandler
+    public void addParseSpawners(ChunkLoadEvent e)
+    {
+	
+	Chunk c = e.getChunk();
+	World w = c.getWorld();
+	
+	int cx = c.getX() << 4;
+	    int cz = c.getZ() << 4;
+	    for (int x = cx; x < cx + 16; x++) {
+		for (int z = cz; z < cz + 16; z++) {
+		    for (int y = 0; y < 128; y++) {
+			if (w.getBlockAt(x, y, z).getType() == Material.WOOL) {
+
+			    Main.spawners.add(w.getBlockAt(x, y, z));
+
+			}
+		    }
+		}
+
+	    }
+	
+	
+    }
+    
 }

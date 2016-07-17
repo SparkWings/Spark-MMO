@@ -35,6 +35,5 @@ public abstract class ArmorSet implements Listener {
 	return boots;
     }
 
-    public abstract void listen(InventoryClickEvent e);
 
 }

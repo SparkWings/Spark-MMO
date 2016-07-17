@@ -37,10 +37,10 @@ public class CustomMobHandler implements Listener {
 		int value = UtilMath.random(1, 6);
 
 		while (value >= 1) {
-		    while (zombie.size() <= 40) {
-			value--;
-			new CustomZombie(b.getLocation().add(0, 2, 0));
-		    }
+
+		    value--;
+		    new CustomZombie(b.getLocation().add(0, 2, 0));
+
 		}
 
 		break;
@@ -51,21 +51,21 @@ public class CustomMobHandler implements Listener {
 		int value2 = UtilMath.random(1, 3);
 
 		while (value2 >= 1) {
-		    while (skele.size() <= 30) {
-			value2--;
 
-			new CustomSkeleton(b.getLocation().add(0, 2, 0));
-		    }
+		    value2--;
+
+		    new CustomSkeleton(b.getLocation().add(0, 2, 0));
+
 		}
 		break;
 
 	    case YELLOW:
 
-		while (pig.size() <= 20) {
+		
 		    new CustomPigZombie(b.getLocation().add(0, 2, 0));
 
 		    break;
-		}
+		
 	    case RED:
 		// boss
 
