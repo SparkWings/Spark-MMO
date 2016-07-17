@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jbltd.mmo.armorsets.UndeadSet;
 import org.jbltd.mmo.core.chat.Broadcast;
 import org.jbltd.mmo.core.chat.ChatClear;
 import org.jbltd.mmo.core.chat.MessageCommand;
@@ -40,7 +41,11 @@ public class Main extends JavaPlugin {
 	getServer().getPluginManager().registerEvents(new BasicListener(), this);
 	getServer().getPluginManager().registerEvents(new CustomMobHandler(), this);
 	getServer().getPluginManager().registerEvents(new GuildCommand(), this);
+	
 
+	getServer().getPluginManager().registerEvents(new UndeadSet(), this);
+	
+	
 	getCommand("broadcast").setExecutor(new Broadcast());
 	getCommand("chat").setExecutor(new ChatClear());
 	getCommand("message").setExecutor(new MessageCommand());
