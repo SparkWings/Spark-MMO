@@ -25,7 +25,6 @@ public class CustomMobHandler implements Listener {
 	if (e.getType() != UpdateType.MIN_01)
 	    return;
 
-	System.out.println("Loop");
 
 	for (Block b : Main.spawners) {
 

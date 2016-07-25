@@ -129,11 +129,11 @@ public class UtilMath {
 
     }
 
-    public static int random(int lowrange, int highrange)
-    {
-	int r = new Random().nextInt((highrange - lowrange))+lowrange;
+    public static int random(int lowrange, int highrange) {
 	
+	int r = new Random().nextInt((highrange - lowrange)) + lowrange;
+
 	return r;
     }
-    
+
 }

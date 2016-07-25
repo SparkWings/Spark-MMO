@@ -13,3 +13,6 @@ commands:
     guild:
         aliases: [guild, g, faction, factions, guilds, f, clan, c]
     escape:
+    invite:
+    accept:
+    deny:

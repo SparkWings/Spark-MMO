@@ -9,7 +9,6 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jbltd.mmo.armorsets.UndeadSet;
 import org.jbltd.mmo.core.chat.Broadcast;
 import org.jbltd.mmo.core.chat.ChatClear;
 import org.jbltd.mmo.core.chat.MessageCommand;
@@ -17,6 +16,8 @@ import org.jbltd.mmo.core.util.UpdateTask;
 import org.jbltd.mmo.core.util.UtilPacket;
 import org.jbltd.mmo.core.util.listeners.BasicListener;
 import org.jbltd.mmo.guilds.GuildCommand;
+import org.jbltd.mmo.guilds.GuildResponseCommands;
+import org.jbltd.mmo.guilds.InviteCommand;
 import org.jbltd.mmo.mobs.CustomMobHandler;
 
 import net.minecraft.server.v1_8_R3.MinecraftServer;
@@ -51,7 +52,10 @@ public class Main extends JavaPlugin {
 	getCommand("message").setExecutor(new MessageCommand());
 	getCommand("reply").setExecutor(new MessageCommand());
 	getCommand("guild").setExecutor(new GuildCommand());
+	getCommand("invite").setExecutor(new InviteCommand());
 	getCommand("escape").setExecutor(new GuildCommand());
+	getCommand("accept").setExecutor(new GuildResponseCommands());
+	getCommand("deny").setExecutor(new GuildResponseCommands());
 	
 	new UpdateTask(this);
 

@@ -48,5 +48,10 @@ public class Guild {
 	return members;
 
     }
+    
+    public void addMember(Player player)
+    {
+    	getGuildMembers().add(player.getUniqueId());
+    }
 
 }
