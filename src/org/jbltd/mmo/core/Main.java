@@ -20,6 +20,7 @@ import org.jbltd.mmo.core.util.UtilPacket;
 import org.jbltd.mmo.core.util.listeners.BasicListener;
 import org.jbltd.mmo.guilds.Guild;
 import org.jbltd.mmo.guilds.GuildCommand;
+import org.jbltd.mmo.guilds.GuildInitTask;
 import org.jbltd.mmo.guilds.GuildResponseCommands;
 import org.jbltd.mmo.guilds.InviteCommand;
 import org.jbltd.mmo.mobs.CustomMobHandler;
@@ -41,7 +42,8 @@ public class Main extends JavaPlugin
 	public void onEnable()
 	{
 
-		File guildsJSON = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), "guilds.json");
+		//Guilds
+		File guildsJSON = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), ".guilds.json");
 		if (!guildsJSON.exists())
 		{
 			try
@@ -54,14 +56,18 @@ public class Main extends JavaPlugin
 			}
 		}
 
+		new GuildInitTask(this);
+		
 		new UtilPacket(this);
 
+		//Listeners
 		getServer().getPluginManager().registerEvents(new BasicListener(), this);
 		getServer().getPluginManager().registerEvents(new CustomMobHandler(), this);
 		getServer().getPluginManager().registerEvents(new GuildCommand(), this);
 
 		// getServer().getPluginManager().registerEvents(new UndeadSet(), this);
 
+		//Commands
 		getCommand("broadcast").setExecutor(new Broadcast());
 		getCommand("chat").setExecutor(new ChatClear());
 		getCommand("message").setExecutor(new MessageCommand());
@@ -72,10 +78,10 @@ public class Main extends JavaPlugin
 		getCommand("accept").setExecutor(new GuildResponseCommands());
 		getCommand("deny").setExecutor(new GuildResponseCommands());
 
+		//UpdateEvent Runnable
 		new UpdateTask(this);
 
-		MinecraftServer.getServer().getPropertyManager().setProperty("debug", true);
-
+		//Spawners
 		World w = Bukkit.getWorld("world");
 
 		for (Chunk c : w.getLoadedChunks())
@@ -102,18 +108,12 @@ public class Main extends JavaPlugin
 
 		}
 
+		MinecraftServer.getServer().getPropertyManager().setProperty("debug", true);
+		
 	}
 
 	public void onDisable()
 	{
-
-		for(Guild g : Guild.allGuilds)
-		{
-
-			JSONUtil.writeToGuildsfile(g.getGuildName(), g.getGuildDescription(), g.getGuildTag(), g.getGuildLeader().getUniqueId().toString(), g.getGuildMembers());
-			
-		}
-		
 	}
 
 }

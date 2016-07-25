@@ -160,12 +160,13 @@ public class GuildCommand implements CommandExecutor , Listener
 				}
 			}
 
-			player.sendMessage(F.info("Guilds", false, "You have set your clan tag to: " + tag));
+			player.sendMessage(F.info("Guilds", false, "You have set your clan tag to: " + F.GOLD+tag));
 
 			Guild newGuild = new Guild(name, description, tag, player, new ArrayList<UUID>());
 			newGuild.getGuildMembers().add(player.getUniqueId());
 			Guild.allGuilds.add(newGuild);
-			JSONUtil.writeToGuildsfile(name, description, tag, player.getUniqueId().toString(), newGuild.getGuildMembers());
+			JSONUtil.writeToGuildsfile(name, description, tag, player.getUniqueId().toString(), newGuild.getGuildMembers(), true);
+			System.out.println("Wrote to file");
 
 			player.sendMessage(F.info("Guilds", false, "You created the Guild [" + F.GOLD + name + F.GREEN + "]"));
 			Guild.phase3.remove(player.getUniqueId());
