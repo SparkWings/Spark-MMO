@@ -20,6 +20,7 @@ public class GuildResponseCommands implements CommandExecutor
 		
 		if(cmd.getName().equalsIgnoreCase("accept"))
 		{
+			System.out.println("CALLED");
 			if(!InviteCommand.pendingInvitees.containsKey(player.getUniqueId()))
 			{
 				player.sendMessage(F.error("Guilds", "You do not have any pending invites."));
@@ -35,6 +36,9 @@ public class GuildResponseCommands implements CommandExecutor
 		
 		if(cmd.getName().equalsIgnoreCase("deny"))
 		{
+			
+			System.out.println("CALLLLLLEEEDDDD");
+			
 			if(!InviteCommand.pendingInvitees.containsKey(player.getUniqueId()))
 			{
 				player.sendMessage(F.error("Guilds", "You do not have any pending invites."));

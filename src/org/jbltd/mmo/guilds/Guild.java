@@ -13,11 +13,11 @@ public class Guild {
     public static List<UUID> phase1 = new ArrayList<UUID>(), phase2 = new ArrayList<UUID>(), phase3 = new ArrayList<UUID>();
     
     private String guildName, tag;
-    private String[] guildDesc;
+    private String guildDesc;
     private Player leader;
     private List<UUID> members;
 
-    public Guild(String guildName, String[] guildDesc, String tag, Player leader, List<UUID> members) {
+    public Guild(String guildName, String guildDesc, String tag, Player leader, List<UUID> members) {
 
 	this.guildName = guildName;
 	this.guildDesc = guildDesc;
@@ -31,7 +31,7 @@ public class Guild {
 	return guildName;
     }
 
-    public String[] getGuildDescription() {
+    public String getGuildDescription() {
 	return guildDesc;
     }
 

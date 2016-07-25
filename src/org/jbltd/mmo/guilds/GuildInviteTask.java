@@ -2,59 +2,81 @@ package org.jbltd.mmo.guilds;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.jbltd.mmo.core.util.F;
 
-public class GuildInviteTask extends Thread
+public class GuildInviteTask implements Runnable
 {
 
 	private Player _player;
 	private Guild g;
-	public volatile boolean respondedToInvite = false;
-	public volatile boolean response = false;
+	public boolean respondedToInvite = false;
+	public boolean response = false;
+	private static int TIMER_DURATION = 300;
+	private static int id;
+	private JavaPlugin plugin;
 
-	public GuildInviteTask(Player player, Guild g)
+	public GuildInviteTask(JavaPlugin plugin, Player player, Guild g)
 	{
 		this._player = player;
 		this.g = g;
-	}
+		this.plugin = plugin;
 
-	public void start()
-	{
-		run();
+		this.id = Bukkit.getScheduler().runTaskTimer(this.plugin, this, 1, 20).getTaskId();
+
+		_player.sendMessage(F.info("Guilds", false, g.getGuildLeader().getName() + " has invited you to join " + g.getGuildName()));
+		_player.sendMessage(F.info("Guilds", false, "Type either /accept or /deny to respond to this invite."));
+
 	}
 
 	@Override
 	public void run()
 	{
 
-		_player.sendMessage(F.info("Guilds", false, g.getGuildLeader().getName()+" has invited you to join "+g.getGuildName()));
-		_player.sendMessage(F.info("Guilds", false, "Type either /accept or /deny to respond to this invite."));
-		
-		while (!respondedToInvite)
+		int i = TIMER_DURATION;
+
+		i--;
+
+		TIMER_DURATION = i;
+
+		if (i == 0)
 		{
-			break;
+			_player.sendMessage(F.error("Guilds", "Your invitation from " + g.getGuildName() + " has timed out."));
+
+			stop();
 		}
 
-		try
+		if (respondedToInvite == false)
 		{
-			_player.sendMessage(F.info("Guilds", false, "You have " + ((response = true) ? "accepted" : "declined") + " the guild invite from " + g.getGuildName()));
 
-			if (response = true)
+			return;
+		}
+		if (respondedToInvite == true)
+		{
+			try
 			{
-				g.addMember(_player);
+				_player.sendMessage(F.info("Guilds", false, "You have " + ((response = true) ? "accepted" : "declined") + " the guild invite from " + g.getGuildName()));
 
-				g.getGuildMembers().forEach(uuid -> Bukkit.getPlayer(uuid).sendMessage(F.info("Guilds", false, _player.getName() + " has joined your guild.")));
+				if (response = true)
+				{
+					g.addMember(_player);
 
-				join();
+					g.getGuildMembers().forEach(uuid -> Bukkit.getPlayer(uuid).sendMessage(F.info("Guilds", false, _player.getName() + " has joined your guild.")));
+					InviteCommand.pendingInvitees.remove(_player.getUniqueId());
+
+					stop();
+				}
+			} catch (Exception e)
+			{
+
 			}
-
-			else
-				join();
-		} catch (InterruptedException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+
+	}
+
+	private void stop()
+	{
+		Bukkit.getScheduler().cancelTask(id);
 
 	}
 
@@ -62,15 +84,15 @@ public class GuildInviteTask extends Thread
 	{
 		return _player;
 	}
-	
+
 	public boolean getResponse()
 	{
 		return response;
 	}
-	
+
 	public boolean hasResponded()
 	{
 		return respondedToInvite;
 	}
-	
+
 }
