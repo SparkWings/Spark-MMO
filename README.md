@@ -7,6 +7,6 @@ An MMORPG Plugin for Minecraft.
 - Custom mobs with custom parsed spawners
 - Custom bosses [TODO]
 - Armor Sets and Set bonuses [TODO]
-- Guilds [TODO]
+- Guilds
 - Custom chat and messaging system
 - Levels [TODO]
