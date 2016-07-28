@@ -44,7 +44,7 @@ public class CustomMobHandler implements Listener
 					for (int i = value; i > 0; i--)
 					{
 
-						if (!(zombie.size() <= 40))
+						if (zombie.size() <= 40)
 						{
 
 							i--;
@@ -65,7 +65,7 @@ public class CustomMobHandler implements Listener
 					for (int i = value2; i > 0; i--)
 					{
 
-						if (!(skele.size() <= 30))
+						if (skele.size() <= 30)
 						{
 							i--;
 
