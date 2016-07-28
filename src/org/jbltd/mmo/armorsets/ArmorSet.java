@@ -1,8 +1,6 @@
 package org.jbltd.mmo.armorsets;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 public abstract class ArmorSet implements Listener {

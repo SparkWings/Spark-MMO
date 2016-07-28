@@ -11,14 +11,13 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jbltd.mmo.armorsets.UndeadSet;
 import org.jbltd.mmo.core.chat.Broadcast;
 import org.jbltd.mmo.core.chat.ChatClear;
 import org.jbltd.mmo.core.chat.MessageCommand;
-import org.jbltd.mmo.core.util.JSONUtil;
 import org.jbltd.mmo.core.util.UpdateTask;
 import org.jbltd.mmo.core.util.UtilPacket;
 import org.jbltd.mmo.core.util.listeners.BasicListener;
-import org.jbltd.mmo.guilds.Guild;
 import org.jbltd.mmo.guilds.GuildCommand;
 import org.jbltd.mmo.guilds.GuildInitTask;
 import org.jbltd.mmo.guilds.GuildResponseCommands;
@@ -65,7 +64,8 @@ public class Main extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new CustomMobHandler(), this);
 		getServer().getPluginManager().registerEvents(new GuildCommand(), this);
 
-		// getServer().getPluginManager().registerEvents(new UndeadSet(), this);
+		//Armor Sets
+		getServer().getPluginManager().registerEvents(new UndeadSet(), this);
 
 		//Commands
 		getCommand("broadcast").setExecutor(new Broadcast());
