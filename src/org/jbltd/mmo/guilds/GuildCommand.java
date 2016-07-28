@@ -166,7 +166,6 @@ public class GuildCommand implements CommandExecutor , Listener
 			newGuild.getGuildMembers().add(player.getUniqueId());
 			Guild.allGuilds.add(newGuild);
 			JSONUtil.writeToGuildsfile(name, description, tag, player.getUniqueId().toString(), newGuild.getGuildMembers(), true);
-			System.out.println("Wrote to file");
 
 			player.sendMessage(F.info("Guilds", false, "You created the Guild [" + F.GOLD + name + F.GREEN + "]"));
 			Guild.phase3.remove(player.getUniqueId());

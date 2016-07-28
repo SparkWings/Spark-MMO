@@ -2,7 +2,7 @@ package org.jbltd.mmo.mobs;
 
 public enum MobType {
 
-    GRUNTZOMBIE,SKELETONWARRIOR,GHOUL,BOSS;
+    GRUNTZOMBIE,SKELETONWARRIOR,GHOUL,GIANTBOSS;
     
     
 }

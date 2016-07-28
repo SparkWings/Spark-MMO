@@ -2,6 +2,7 @@ package org.jbltd.mmo.mobs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,11 +10,13 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.CreatureType;
 import org.bukkit.entity.LivingEntity;
+import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.ItemFactory;
 
 public abstract class CustomMob {
 
     private String name;
+    private UUID uuid;
     private double health;
     private Material weapon;
     private MobType mobtype;
@@ -37,6 +40,11 @@ public abstract class CustomMob {
 
     }
 
+    public UUID getUniqueId()
+    {
+    	return uuid;
+    }
+    
     public double getHealth() {
 	return health;
     }
@@ -65,6 +73,7 @@ public abstract class CustomMob {
 	    e.setCustomName(ChatColor.RED + getName());
 	    e.setCustomNameVisible(true);
 	    e.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = e.getUniqueId();
 	    break;
 
 	case SKELETONWARRIOR:
@@ -78,6 +87,7 @@ public abstract class CustomMob {
 	    e2.getEquipment().setLeggings(ItemFactory.createItem(Material.GOLD_LEGGINGS, "", null, false));
 	    e2.getEquipment().setBoots(ItemFactory.createItem(Material.GOLD_BOOTS, "", null, false));
 	    e2.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = e2.getUniqueId();
 	    break;
 
 	case GHOUL:
@@ -91,12 +101,20 @@ public abstract class CustomMob {
 	    e3.getEquipment().setLeggings(ItemFactory.createItem(Material.IRON_LEGGINGS, "", null, false));
 	    e3.getEquipment().setBoots(ItemFactory.createItem(Material.IRON_BOOTS, "", null, false));
 	    e3.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = e3.getUniqueId();
+	    break;
+
+	case GIANTBOSS:
+		LivingEntity e4 = Bukkit.getWorld("world").spawnCreature(location, CreatureType.GIANT);
+		e4.setMaxHealth(getHealth());
+	    e4.setHealth(e4.getMaxHealth());
+	    e4.setCustomName(ChatColor.RED + getName());
+	    e4.setCustomNameVisible(true);
+	    e4.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), F.DARK_RED+"Sword of Destruction", null, false));
+	    uuid = e4.getUniqueId();
 	    
-	    break;
-
-	case BOSS:
-	    break;
-
+	default:
+		break;
 	}
 
     }
