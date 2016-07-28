@@ -6,12 +6,14 @@ import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.entity.Creature;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -146,5 +148,12 @@ public class BasicListener implements Listener {
 	
 	
     }
+    
+    
+    @EventHandler
+    public void onEntityInteract(EntityInteractEvent event) {
+    	if (event.getBlock().getType() == Material.SOIL && event.getEntity() instanceof Creature)
+    		event.setCancelled(true);
+    		}
     
 }

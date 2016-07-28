@@ -6,8 +6,10 @@ import java.util.UUID;
 
 import org.bukkit.DyeColor;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
@@ -95,6 +97,7 @@ public class CustomMobHandler implements Listener
 		}
 		if (e.getType() == UpdateType.MIN_08)
 		{
+			System.out.println("8");
 			for (Block b : Main.spawners)
 			{
 				DyeColor d = DyeColor.getByData(b.getData());
@@ -103,12 +106,10 @@ public class CustomMobHandler implements Listener
 				{
 
 				case RED:
+					System.out.println("RED");
+					GiantBoss bz = new GiantBoss(b.getLocation());
+					giant.add(bz.getUniqueId());
 
-					if (giant.size() == 0)
-					{
-						GiantBoss bz = new GiantBoss(b.getLocation());
-						giant.add(bz.getUniqueId());
-					}
 					break;
 
 				default:
@@ -117,4 +118,29 @@ public class CustomMobHandler implements Listener
 			}
 		}
 	}
+
+	@EventHandler
+	public void onDeath(EntityDeathEvent e)
+	{
+
+		Entity en = e.getEntity();
+
+		if (zombie.contains(en.getUniqueId()))
+		{
+			zombie.remove(en.getUniqueId());
+		}
+		if (skele.contains(en.getUniqueId()))
+		{
+			skele.remove(en.getUniqueId());
+		}
+		if (pig.contains(en.getUniqueId()))
+		{
+			pig.remove(en.getUniqueId());
+		}
+		if (giant.contains(en.getUniqueId()))
+		{
+			giant.remove(en.getUniqueId());
+		}
+	}
+
 }

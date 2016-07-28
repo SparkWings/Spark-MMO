@@ -25,12 +25,7 @@ public abstract class CustomBoss extends CustomMob
 	{
 		super.spawn(location, type);
 
-		for (int i = 0; i < 10; i++)
-		{
-
-			UtilMath.circle(getMobSpawnLocation(), 10, true).forEach(value -> new CustomPigZombie(value));
-
-		}
+		UtilMath.circle(getMobSpawnLocation(), 4, true).forEach(value -> new CustomPigZombie(value));
 
 		Bukkit.broadcastMessage(F.info("Boss", false, F.RED + "A boss has spawned at (" + F.AQUA + getMobSpawnLocation().getBlockX() + F.RED + "," + F.AQUA
 				+ getMobSpawnLocation().getBlockY() + F.RED + "," + F.AQUA + getMobSpawnLocation().getBlockZ() + F.RED + ")"));
