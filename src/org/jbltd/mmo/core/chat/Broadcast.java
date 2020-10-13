@@ -13,36 +13,36 @@ public class Broadcast implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-	if (!(sender instanceof Player))
-	    return true;
+        if (!(sender instanceof Player))
+            return true;
 
-	if (cmd.getName().equalsIgnoreCase("broadcast")) {
+        if (cmd.getName().equalsIgnoreCase("broadcast")) {
 
-	    Player player = (Player) sender;
+            Player player = (Player) sender;
 
-	    if (!player.isOp()) {
-		return true;
-	    }
+            if (!player.isOp()) {
+                return true;
+            }
 
-	    StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-	    for (int i = 0; i < args.length; i++) {
-		sb.append(args[i]);
-	    }
+            for (int i = 0; i < args.length; i++) {
+                sb.append(args[i]);
+            }
 
-	    String finals = sb.toString().trim();
+            String finals = sb.toString().trim();
 
-	    for (Player all : Bukkit.getOnlinePlayers()) {
+            for (Player all : Bukkit.getOnlinePlayers()) {
 
-		all.sendMessage(F.WHITE + F.BOLD + player.getName() + " - " + F.AQUA + finals);
-		all.playSound(all.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 10F, 1F);
+                all.sendMessage(F.WHITE + F.BOLD + player.getName() + " - " + F.AQUA + finals);
+                all.playSound(all.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 10F, 1F);
 
-	    }
-	    return false;
+            }
+            return false;
 
-	}
+        }
 
-	return false;
+        return false;
 
     }
 

@@ -1,6 +1,5 @@
 package org.jbltd.mmo.core;
 
-import net.minecraft.server.v1_16_R2.PacketPlayOutChat;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -29,6 +28,7 @@ import java.util.List;
 
 public class Main extends JavaPlugin {
 
+    public static List<Block> spawners = new ArrayList<>();
     /**
      * TODO
      * Mob Limits
@@ -36,14 +36,13 @@ public class Main extends JavaPlugin {
      */
 
     private List<String> configMaterials = new ArrayList<>();
-    public static List<Block> spawners = new ArrayList<>();
-	private File mobConfigFile;
-	private FileConfiguration mobConfig;
+    private File mobConfigFile;
+    private FileConfiguration mobConfig;
 
 
     public void onEnable() {
 
-    	createConfigFiles();
+        createConfigFiles();
 
         //Guilds
         File guildsJSON = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), "guilds.json");
@@ -93,15 +92,14 @@ public class Main extends JavaPlugin {
             for (int x = cx; x < cx + 16; x++) {
                 for (int z = cz; z < cz + 16; z++) {
                     for (int y = 0; y < 128; y++) {
-                        Block b = w.getBlockAt(x,y,z);
+                        Block b = w.getBlockAt(x, y, z);
                         Material m = b.getType();
 
-                        for(String s : configMaterials) {
-                            if(m.toString().equalsIgnoreCase(s)) {
+                        for (String s : configMaterials) {
+                            if (m.toString().equalsIgnoreCase(s)) {
                                 spawners.add(b);
-                                System.out.println("added "+s);
-                            }
-                            else continue;
+                                System.out.println("added " + s);
+                            } else continue;
                         }
 //
 //                        if (w.getBlockAt(x, y, z).getType().toString().endsWith("WOOL")) {
@@ -120,35 +118,34 @@ public class Main extends JavaPlugin {
     }
 
     public FileConfiguration getMobConfig() {
-    	return this.mobConfig;
-	}
+        return this.mobConfig;
+    }
 
-	private void createConfigFiles() {
-    	mobConfigFile = new File(getDataFolder(), "mobs.yml");
+    private void createConfigFiles() {
+        mobConfigFile = new File(getDataFolder(), "mobs.yml");
 
-    	if(!mobConfigFile.exists()) {
-    		mobConfigFile.getParentFile().mkdirs();
-    		saveResource("mobs.yml", false);
-		}
-    	else {
-    		mobConfig = new YamlConfiguration();
-    		try {
-    			mobConfig.load(mobConfigFile);
+        if (!mobConfigFile.exists()) {
+            mobConfigFile.getParentFile().mkdirs();
+            saveResource("mobs.yml", false);
+        } else {
+            mobConfig = new YamlConfiguration();
+            try {
+                mobConfig.load(mobConfigFile);
 
-    			//Add spawn materials
+                //Add spawn materials
                 configMaterials.add(getMobConfig().getString("zombie.spawnsOn"));
                 configMaterials.add(getMobConfig().getString("skeleton.spawnsOn"));
                 configMaterials.add(getMobConfig().getString("piglin.spawnsOn"));
 
 
-			} catch(Exception e) {
-    			e.printStackTrace();
-			}
-		}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
-	}
+    }
 
-	public void onDisable() {
+    public void onDisable() {
     }
 
 }

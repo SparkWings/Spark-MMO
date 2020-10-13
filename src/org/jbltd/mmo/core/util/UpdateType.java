@@ -1,66 +1,58 @@
 package org.jbltd.mmo.core.util;
 
-public enum UpdateType
-{
-    	MINECRAFT_DAY(1200000),
-	MIN_64(3840000),
-	MIN_32(1920000),
-	MIN_16(960000),
-	MIN_08(480000),
-	MIN_04(240000),
-	MIN_02(120000),
-	MIN_01(60000), 
-	SLOWEST(32000),
-	SLOWER(16000),
-	SLOW(4000),
-	TWOSEC(2000),
-	SEC(1000),
-	FAST(500),
-	FASTER(250),
-	FASTEST(125),
-	TICK(49);
+public enum UpdateType {
+    MINECRAFT_DAY(1200000),
+    MIN_64(3840000),
+    MIN_32(1920000),
+    MIN_16(960000),
+    MIN_08(480000),
+    MIN_04(240000),
+    MIN_02(120000),
+    MIN_01(60000),
+    SLOWEST(32000),
+    SLOWER(16000),
+    SLOW(4000),
+    TWOSEC(2000),
+    SEC(1000),
+    FAST(500),
+    FASTER(250),
+    FASTEST(125),
+    TICK(49);
 
-	private final long _time;
-	private long _last;
-	private long _timeSpent;
-	private long _timeCount;
+    private final long _time;
+    private long _last;
+    private long _timeSpent;
+    private long _timeCount;
 
-	UpdateType(long time)
-	{
-		_time = time;
-		_last = System.currentTimeMillis();
-	}
+    UpdateType(long time) {
+        _time = time;
+        _last = System.currentTimeMillis();
+    }
 
-	public boolean Elapsed()
-	{
-		if (elapsed(_last, _time))
-		{
-			_last = System.currentTimeMillis();
-			return true;
-		}
+    public static boolean elapsed(long from, long required) {
+        return System.currentTimeMillis() - from > required;
+    }
 
-		return false;
-	}
+    public boolean Elapsed() {
+        if (elapsed(_last, _time)) {
+            _last = System.currentTimeMillis();
+            return true;
+        }
 
-	public void StartTime()
-	{
-		_timeCount = System.currentTimeMillis();
-	}
+        return false;
+    }
 
-	public void StopTime()
-	{
-		_timeSpent += System.currentTimeMillis() - _timeCount;
-	}
+    public void StartTime() {
+        _timeCount = System.currentTimeMillis();
+    }
 
-	public void PrintAndResetTime()
-	{
-		System.out.println(this.name() + " in a second: " + _timeSpent);
-		_timeSpent = 0;
-	}
+    public void StopTime() {
+        _timeSpent += System.currentTimeMillis() - _timeCount;
+    }
 
-	public static boolean elapsed(long from, long required)
-	{
-		return System.currentTimeMillis() - from > required;
-	}
+    public void PrintAndResetTime() {
+        System.out.println(this.name() + " in a second: " + _timeSpent);
+        _timeSpent = 0;
+    }
 
 }

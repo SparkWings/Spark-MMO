@@ -29,19 +29,18 @@ public class F {
 
     public static String info(String head, boolean logSafe, String message) {
 
-	if (!logSafe) {
-	    return ChatColor.GRAY + head + ChatColor.DARK_GRAY + "> " + ChatColor.GREEN + message;
-	} else {
-	    return head + "> " + message;
-	}
+        if (!logSafe) {
+            return ChatColor.GRAY + head + ChatColor.DARK_GRAY + "> " + ChatColor.GREEN + message;
+        } else {
+            return head + "> " + message;
+        }
 
     }
 
-    public static String error(String head, String message)
-    {
-	
-	return ChatColor.GRAY + head + ChatColor.DARK_GRAY + "> " + ChatColor.RED + message;
-	
+    public static String error(String head, String message) {
+
+        return ChatColor.GRAY + head + ChatColor.DARK_GRAY + "> " + ChatColor.RED + message;
+
     }
-    
+
 }

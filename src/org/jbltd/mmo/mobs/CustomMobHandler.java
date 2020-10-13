@@ -1,10 +1,5 @@
 package org.jbltd.mmo.mobs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -14,6 +9,10 @@ import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
 import org.jbltd.mmo.core.util.UtilMath;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class CustomMobHandler implements Listener {
 
@@ -85,8 +84,8 @@ public class CustomMobHandler implements Listener {
 
                     case "RED_WOOL":
                         System.out.println("RED");
-                       // GiantBoss bz = new GiantBoss(b.getLocation());
-                       // giant.add(bz.getUniqueId());
+                        // GiantBoss bz = new GiantBoss(b.getLocation());
+                        // giant.add(bz.getUniqueId());
 
                         break;
 

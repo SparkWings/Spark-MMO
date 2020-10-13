@@ -5,8 +5,8 @@ public enum MobType {
     ZOMBIE("zombie"), SKELETON("skeleton"), PIGLIN("piglin");
 
 
-
     private final String name;
+
     private MobType(String displayName) {
         name = displayName;
     }

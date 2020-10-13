@@ -1,6 +1,5 @@
 package org.jbltd.mmo.guilds;
 
-public class KickCommand
-{
-	//TODO
+public class KickCommand {
+    //TODO
 }

@@ -5,15 +5,15 @@ api-version: 1.16
 author: SparkWings
 
 commands:
-    chat:
-    broadcast:
-    message:
-        aliases: [message, msg, m, whisper, w, tell]
-    reply:
-        aliases: [reply, r]
-    guild:
-        aliases: [guild, g, faction, factions, guilds, f, clan, c]
-    escape:
-    invite:
-    accept:
-    deny:
+  chat:
+  broadcast:
+  message:
+    aliases: [ message, msg, m, whisper, w, tell ]
+  reply:
+    aliases: [ reply, r ]
+  guild:
+    aliases: [ guild, g, faction, factions, guilds, f, clan, c ]
+  escape:
+  invite:
+  accept:
+  deny:

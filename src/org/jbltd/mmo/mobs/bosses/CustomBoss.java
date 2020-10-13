@@ -2,10 +2,8 @@ package org.jbltd.mmo.mobs.bosses;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.F;
-import org.jbltd.mmo.core.util.UtilMath;
 import org.jbltd.mmo.mobs.CustomMob;
 import org.jbltd.mmo.mobs.MobType;
 

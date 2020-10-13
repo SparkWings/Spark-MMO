@@ -11,29 +11,29 @@ public abstract class ArmorSet implements Listener {
     private final ItemStack boots;
 
     public ArmorSet(ItemStack helmet, ItemStack chest, ItemStack pants, ItemStack boots) {
-	this.helmet = helmet;
-	this.chest = chest;
-	this.pants = pants;
-	this.boots = boots;
-	
-	
+        this.helmet = helmet;
+        this.chest = chest;
+        this.pants = pants;
+        this.boots = boots;
+
+
     }
 
     public ItemStack getSetHelmet() {
-	return helmet;
+        return helmet;
     }
 
     public ItemStack getSetChestplate() {
-	return chest;
+        return chest;
     }
 
     public ItemStack getSetPants() {
-	return pants;
+        return pants;
 
     }
 
     public ItemStack getSetBoots() {
-	return boots;
+        return boots;
     }
 
 
