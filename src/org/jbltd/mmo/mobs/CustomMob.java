@@ -14,12 +14,12 @@ import java.util.UUID;
 
 public abstract class CustomMob {
 
-    private String name;
+    private final String name;
     private UUID uuid;
-    private double health;
-    private Material weapon;
-    private MobType mobtype;
-    private Location spawnLocation;
+    private final double health;
+    private final Material weapon;
+    private final MobType mobtype;
+    private final Location spawnLocation;
 
     public List<LivingEntity> allMobs = new ArrayList<LivingEntity>();
 
@@ -76,6 +76,7 @@ public abstract class CustomMob {
 	    break;
 
 	case SKELETONWARRIOR:
+		System.out.println("yoink");
 	    Skeleton skeleton = (Skeleton) Bukkit.getWorld("world").spawnEntity(location, EntityType.SKELETON);
 	    skeleton.setMaxHealth(getHealth());
 	    skeleton.setHealth(skeleton.getMaxHealth());
@@ -113,6 +114,7 @@ public abstract class CustomMob {
 	    uuid = giant.getUniqueId();
 	    
 	default:
+		System.out.println("sad yonk");
 		break;
 	}
 

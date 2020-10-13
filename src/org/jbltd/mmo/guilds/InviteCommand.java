@@ -16,7 +16,7 @@ public class InviteCommand implements CommandExecutor
 
 	protected static HashMap<UUID, GuildInviteTask> pendingInvitees = new HashMap<>();
 
-	private JavaPlugin plugin;
+	private final JavaPlugin plugin;
 
 	public InviteCommand(JavaPlugin plugin)
 	{

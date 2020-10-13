@@ -35,7 +35,7 @@ public class UndeadSet extends ArmorSet
 	private static final ItemStack BOOTS = ItemFactory.createItem(Material.CHAINMAIL_BOOTS, F.DARK_PURPLE + "Undead Boots", Arrays.asList(F.GRAY + "A helmet forged in darkness",
 			F.GRAY + "Some say that whoever wears it will never feel pain", F.GRAY + "of the living world again", "", F.RED + "Undead Set"), true);
 
-	private List<UUID> players = new ArrayList<UUID>();
+	private final List<UUID> players = new ArrayList<UUID>();
 
 	public UndeadSet()
 	{

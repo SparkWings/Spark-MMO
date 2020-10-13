@@ -12,10 +12,11 @@ public class Guild {
 
     public static List<UUID> phase1 = new ArrayList<UUID>(), phase2 = new ArrayList<UUID>(), phase3 = new ArrayList<UUID>();
     
-    private String guildName, tag;
-    private String guildDesc;
-    private Player leader;
-    private List<UUID> members;
+    private final String guildName;
+    private final String tag;
+    private final String guildDesc;
+    private final Player leader;
+    private final List<UUID> members;
 
     public Guild(String guildName, String guildDesc, String tag, Player leader, List<UUID> members) {
 

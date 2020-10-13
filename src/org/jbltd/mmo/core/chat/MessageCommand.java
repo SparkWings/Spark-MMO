@@ -13,7 +13,7 @@ import org.jbltd.mmo.core.util.F;
 public class MessageCommand implements CommandExecutor
 {
 
-	private HashMap<UUID, UUID> _lastMessage = new HashMap<>();
+	private final HashMap<UUID, UUID> _lastMessage = new HashMap<>();
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{

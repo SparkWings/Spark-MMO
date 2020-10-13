@@ -20,7 +20,7 @@ public enum UpdateType
 	FASTEST(125),
 	TICK(49);
 
-	private long _time;
+	private final long _time;
 	private long _last;
 	private long _timeSpent;
 	private long _timeCount;

@@ -29,7 +29,7 @@ public class JSONUtil
 			String path = Bukkit.getServer().getWorldContainer().getAbsolutePath() + "guilds.json";
 
 			Object obj = parser.parse(new FileReader(path));
-			System.out.println(F.info("Guilds", true, "Iniating guild setup... This may take a few moments."));
+			System.out.println(F.info("Guilds", true, "Initiating guild setup... This may take a few moments."));
 
 			JSONArray array = (JSONArray) obj;
 

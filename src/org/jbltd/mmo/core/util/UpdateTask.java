@@ -4,7 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class UpdateTask implements Runnable
 {
-	private JavaPlugin _plugin;
+	private final JavaPlugin _plugin;
 
 	public UpdateTask(JavaPlugin plugin)
 	{

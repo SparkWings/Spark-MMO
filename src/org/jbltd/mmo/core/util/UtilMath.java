@@ -125,7 +125,7 @@ public class UtilMath
 
 		Location loc = b.getLocation();
 
-		int iR = (int) 16;
+		int iR = 16;
 		for (int x = -iR; x <= iR; x++)
 		{
 			for (int z = -iR; z <= iR; z++)

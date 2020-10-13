@@ -40,7 +40,7 @@ public class Main extends JavaPlugin
 	{
 
 		//Guilds
-		File guildsJSON = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), ".guilds.json");
+		File guildsJSON = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), "guilds.json");
 		if (!guildsJSON.exists())
 		{
 			try
@@ -55,7 +55,7 @@ public class Main extends JavaPlugin
 
 		new GuildInitTask(this);
 		
-		new UtilPacket(this);
+		//new UtilPacket(this);
 
 		//Listeners
 		getServer().getPluginManager().registerEvents(new BasicListener(), this);
@@ -95,7 +95,7 @@ public class Main extends JavaPlugin
 					{
 						if (w.getBlockAt(x, y, z).getType().toString().endsWith("WOOL"))
 						{
-
+							System.out.println("FOUND!!");
 							spawners.add(w.getBlockAt(x, y, z));
 
 						}

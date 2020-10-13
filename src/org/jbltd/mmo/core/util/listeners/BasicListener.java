@@ -41,10 +41,8 @@ public class BasicListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
 	e.setJoinMessage(null);
-
-	e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), 830, 41, 3097));
-	UtilPacket.sendHealthMessage(e.getPlayer());
-
+	e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), 791, 66, 3098));
+	//UtilPacket.sendHealthMessage(e.getPlayer());
     }
 
     @EventHandler

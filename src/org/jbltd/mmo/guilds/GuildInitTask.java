@@ -7,7 +7,7 @@ import org.jbltd.mmo.core.util.JSONUtil;
 public class GuildInitTask implements Runnable
 {
 
-	private JavaPlugin plugin;
+	private final JavaPlugin plugin;
 	
 	public GuildInitTask(JavaPlugin plugin)
 	{

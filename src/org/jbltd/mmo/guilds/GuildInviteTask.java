@@ -8,13 +8,13 @@ import org.jbltd.mmo.core.util.F;
 public class GuildInviteTask implements Runnable
 {
 
-	private Player _player;
-	private Guild g;
+	private final Player _player;
+	private final Guild g;
 	public boolean respondedToInvite = false;
 	public boolean response = false;
 	private static int TIMER_DURATION = 300;
 	private static int id;
-	private JavaPlugin plugin;
+	private final JavaPlugin plugin;
 
 	public GuildInviteTask(JavaPlugin plugin, Player player, Guild g)
 	{
@@ -22,7 +22,7 @@ public class GuildInviteTask implements Runnable
 		this.g = g;
 		this.plugin = plugin;
 
-		this.id = Bukkit.getScheduler().runTaskTimer(this.plugin, this, 1, 20).getTaskId();
+		id = Bukkit.getScheduler().runTaskTimer(this.plugin, this, 1, 20).getTaskId();
 
 		_player.sendMessage(F.info("Guilds", false, g.getGuildLeader().getName() + " has invited you to join " + g.getGuildName()));
 		_player.sendMessage(F.info("Guilds", false, "Type either /accept or /deny to respond to this invite."));

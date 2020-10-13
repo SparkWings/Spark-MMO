@@ -5,7 +5,10 @@ import org.bukkit.inventory.ItemStack;
 
 public abstract class ArmorSet implements Listener {
 
-    private ItemStack helmet, chest, pants, boots;
+    private final ItemStack helmet;
+    private final ItemStack chest;
+    private final ItemStack pants;
+    private final ItemStack boots;
 
     public ArmorSet(ItemStack helmet, ItemStack chest, ItemStack pants, ItemStack boots) {
 	this.helmet = helmet;

@@ -34,7 +34,7 @@ public class CustomMobHandler implements Listener
 
 			for (Block b : Main.spawners)
 			{
-
+				System.out.println(b.getType().toString());
 
 
 				switch (b.getType().toString())
@@ -61,6 +61,7 @@ public class CustomMobHandler implements Listener
 
 				case "LIME_WOOL":
 					// Skele
+					System.out.println("Hello there");
 
 					int value2 = UtilMath.random(1, 3);
 
@@ -70,10 +71,10 @@ public class CustomMobHandler implements Listener
 						if (skele.size() <= 30)
 						{
 							i--;
-
 							CustomSkeleton s = new CustomSkeleton(b.getLocation().add(0, 2, 0));
 							skele.add(s.getUniqueId());
 						}
+						System.out.print("General kenobi");
 					}
 					break;
 
@@ -120,22 +121,10 @@ public class CustomMobHandler implements Listener
 
 		Entity en = e.getEntity();
 
-		if (zombie.contains(en.getUniqueId()))
-		{
-			zombie.remove(en.getUniqueId());
-		}
-		if (skele.contains(en.getUniqueId()))
-		{
-			skele.remove(en.getUniqueId());
-		}
-		if (pig.contains(en.getUniqueId()))
-		{
-			pig.remove(en.getUniqueId());
-		}
-		if (giant.contains(en.getUniqueId()))
-		{
-			giant.remove(en.getUniqueId());
-		}
+		zombie.remove(en.getUniqueId());
+		skele.remove(en.getUniqueId());
+		pig.remove(en.getUniqueId());
+		giant.remove(en.getUniqueId());
 	}
 
 }
