@@ -1,12 +1,11 @@
 package org.jbltd.mmo.mobs;
 
 import org.bukkit.Location;
-import org.bukkit.Material;
+import org.jbltd.mmo.core.Main;
 
 public class CustomSkeleton extends CustomMob {
 
-    public CustomSkeleton(Location spawnloc) {
-	super("Skeleton Warrior", 20.0D, Material.WOODEN_AXE, MobType.SKELETONWARRIOR, spawnloc);
+    public CustomSkeleton(Main main, Location spawnLoc) {
+        super(main, MobType.SKELETON, spawnLoc);
     }
-
 }

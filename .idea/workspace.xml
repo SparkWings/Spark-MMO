@@ -29,29 +29,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d306f7-8083-456d-9f6c-7617659aec14" name="Default Changelist" comment="Updating Spigot/MC imports to 1.16.3">
+      <change afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomPiglin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/armorsets/ArmorSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/armorsets/ArmorSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/armorsets/UndeadSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/armorsets/UndeadSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/chat/MessageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/chat/MessageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/JSONUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/JSONUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UpdateType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UtilMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UtilMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/listeners/BasicListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/listeners/BasicListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/Guild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/Guild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/GuildInitTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/GuildInitTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/GuildInviteTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/GuildInviteTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/InviteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/guilds/InviteCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMobHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMobHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomPigZombie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomSkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomSkeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomZombie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/MobType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/MobType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/bosses/CustomBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/bosses/CustomBoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/bosses/GiantBoss.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +74,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.jbltd.mmo.mobs" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602553442684</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updating Spigot/MC imports to 1.16.3">
+      <created>1602557162667</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602557162667</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +135,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -134,33 +148,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602553471590" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1602620813945">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602620813945" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602624072055">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602624072055" />
     <state x="441" y="234" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1602553523247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="234" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602553523247" />
-    <state width="1323" height="185" key="GridCell.Tab.0.bottom" timestamp="1602556091732">
+    <state width="1323" height="167" key="GridCell.Tab.0.bottom" timestamp="1602629619198">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="185" key="GridCell.Tab.0.bottom/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602556091732" />
-    <state width="1323" height="185" key="GridCell.Tab.0.center" timestamp="1602556091732">
+    <state width="1323" height="167" key="GridCell.Tab.0.bottom/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602629619198" />
+    <state width="1323" height="167" key="GridCell.Tab.0.center" timestamp="1602629619198">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="185" key="GridCell.Tab.0.center/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602556091732" />
-    <state width="1323" height="185" key="GridCell.Tab.0.left" timestamp="1602556091732">
+    <state width="1323" height="167" key="GridCell.Tab.0.center/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602629619198" />
+    <state width="1323" height="167" key="GridCell.Tab.0.left" timestamp="1602629619198">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="185" key="GridCell.Tab.0.left/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602556091732" />
-    <state width="1323" height="185" key="GridCell.Tab.0.right" timestamp="1602556091732">
+    <state width="1323" height="167" key="GridCell.Tab.0.left/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602629619198" />
+    <state width="1323" height="167" key="GridCell.Tab.0.right" timestamp="1602629619198">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="185" key="GridCell.Tab.0.right/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602556091732" />
+    <state width="1323" height="167" key="GridCell.Tab.0.right/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602629619198" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1602550950517">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602550950517" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602553444585">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602557164014">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602553444585" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602557164014" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602619566119">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602619566119" />
   </component>
 </project>

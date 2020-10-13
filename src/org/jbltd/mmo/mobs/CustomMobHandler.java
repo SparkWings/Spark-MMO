@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.bukkit.DyeColor;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -14,117 +14,98 @@ import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
 import org.jbltd.mmo.core.util.UtilMath;
-import org.jbltd.mmo.mobs.bosses.GiantBoss;
 
-public class CustomMobHandler implements Listener
-{
+public class CustomMobHandler implements Listener {
 
-	public List<UUID> zombie = new ArrayList<>();
-	public List<UUID> skele = new ArrayList<>();
-	public List<UUID> pig = new ArrayList<>();
-	public List<UUID> giant = new ArrayList<>();
+    public List<UUID> zombie = new ArrayList<>();
+    public List<UUID> skele = new ArrayList<>();
+    public List<UUID> pig = new ArrayList<>();
+    public List<UUID> giant = new ArrayList<>();
+    public List<UUID> drowned = new ArrayList<>();
+    private Main jPlugin;
 
-	@SuppressWarnings("deprecation")
-	@EventHandler
-	public void spawnMobs(UpdateEvent e)
-	{
+    public CustomMobHandler(Main plugin) {
+        this.jPlugin = plugin;
+    }
 
-		if (e.getType() == UpdateType.MIN_01)
-		{
+    @EventHandler
+    public void spawnMobs(UpdateEvent e) {
 
-			for (Block b : Main.spawners)
-			{
-				System.out.println(b.getType().toString());
+        if (e.getType() == UpdateType.SLOWEST) {
 
+            for (Block b : Main.spawners) {
+                switch (b.getType().toString()) {
+                    case "LIME_WOOL":
+                        int value = UtilMath.random(1, 6);
 
-				switch (b.getType().toString())
-				{
-				case "BLUE_WOOL":
+                        for (int i = value; i > 0; i--) {
+                            if (zombie.size() <= jPlugin.getMobConfig().getInt("zombie.maxNumber")) {
+                                i--;
+                                CustomZombie z = new CustomZombie(jPlugin, b.getLocation().add(0, 2, 0));
+                                zombie.add(z.getUniqueId());
+                            }
 
-					int value = UtilMath.random(1, 6);
+                        }
 
-					for (int i = value; i > 0; i--)
-					{
+                        break;
 
-						if (zombie.size() <= 40)
-						{
+                    case "YELLOW_WOOL":
+                        int value2 = UtilMath.random(1, 3);
 
-							i--;
+                        for (int i = value2; i > 0; i--) {
 
-							CustomZombie z = new CustomZombie(b.getLocation().add(0, 2, 0));
-							zombie.add(z.getUniqueId());
-						}
+                            if (skele.size() <= jPlugin.getMobConfig().getInt("skeleton.maxNumber")) {
+                                i--;
 
-					}
+                                CustomSkeleton s = new CustomSkeleton(jPlugin, b.getLocation().add(0, 2, 0));
+                                skele.add(s.getUniqueId());
+                            }
+                        }
+                        break;
 
-					break;
+                    case "BLUE_WOOL":
 
-				case "LIME_WOOL":
-					// Skele
-					System.out.println("Hello there");
+                        CustomPiglin p = new CustomPiglin(jPlugin, b.getLocation().add(0, 2, 0));
+                        pig.add(p.getUniqueId());
 
-					int value2 = UtilMath.random(1, 3);
+                        break;
 
-					for (int i = value2; i > 0; i--)
-					{
+                    default:
+                        break;
 
-						if (skele.size() <= 30)
-						{
-							i--;
-							CustomSkeleton s = new CustomSkeleton(b.getLocation().add(0, 2, 0));
-							skele.add(s.getUniqueId());
-						}
-						System.out.print("General kenobi");
-					}
-					break;
+                }
 
-				case "YELLOW_WOOL":
+            }
+        }
+        if (e.getType() == UpdateType.MIN_08) {
+            System.out.println("8");
+            for (Block b : Main.spawners) {
 
-					CustomPigZombie p = new CustomPigZombie(b.getLocation().add(0, 2, 0));
-					pig.add(p.getUniqueId());
+                switch (b.getType().toString()) {
 
-					break;
+                    case "RED_WOOL":
+                        System.out.println("RED");
+                       // GiantBoss bz = new GiantBoss(b.getLocation());
+                       // giant.add(bz.getUniqueId());
 
-				default:
-					break;
+                        break;
 
-				}
+                    default:
+                        break;
+                }
+            }
+        }
+    }
 
-			}
-		}
-		if (e.getType() == UpdateType.MIN_08)
-		{
-			System.out.println("8");
-			for (Block b : Main.spawners)
-			{
+    @EventHandler
+    public void onDeath(EntityDeathEvent e) {
 
-				switch (b.getType().toString())
-				{
+        Entity en = e.getEntity();
 
-				case "RED_WOOL":
-					System.out.println("RED");
-					GiantBoss bz = new GiantBoss(b.getLocation());
-					giant.add(bz.getUniqueId());
-
-					break;
-
-				default:
-					break;
-				}
-			}
-		}
-	}
-
-	@EventHandler
-	public void onDeath(EntityDeathEvent e)
-	{
-
-		Entity en = e.getEntity();
-
-		zombie.remove(en.getUniqueId());
-		skele.remove(en.getUniqueId());
-		pig.remove(en.getUniqueId());
-		giant.remove(en.getUniqueId());
-	}
+        zombie.remove(en.getUniqueId());
+        skele.remove(en.getUniqueId());
+        pig.remove(en.getUniqueId());
+        giant.remove(en.getUniqueId());
+    }
 
 }

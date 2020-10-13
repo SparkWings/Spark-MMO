@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
+import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.ItemFactory;
 
@@ -14,25 +15,44 @@ import java.util.UUID;
 
 public abstract class CustomMob {
 
-    private final String name;
+	private Main mainClazz;
+    private String name;
     private UUID uuid;
-    private final double health;
-    private final Material weapon;
-    private final MobType mobtype;
-    private final Location spawnLocation;
+    private double health;
+    private Material weapon;
+    private MobType mobtype;
+    private Location spawnLocation;
 
     public List<LivingEntity> allMobs = new ArrayList<LivingEntity>();
 
-    public CustomMob(final String name, double health, Material weapon, MobType mobtype, Location spawnloc) {
-	this.name = name;
-	this.health = health;
-	this.weapon = weapon;
-	this.mobtype = mobtype;
-	this.spawnLocation = spawnloc;
 
-	spawn(spawnloc, mobtype);
+    public CustomMob(Main main, MobType mobType, Location spawnLoc) {
+		this.mainClazz = main;
+		this.mobtype = mobType;
+		String mobTypeS = this.mobtype.toString().toLowerCase();
 
-    }
+		this.name = getMainClazz().getMobConfig().getString(mobTypeS+".name");
+
+		System.out.println(this.name);
+		System.out.println(getMainClazz().getMobConfig().getDouble("zombie.maxHealth"));
+		System.out.println(getMainClazz().getMobConfig().getDouble(mobTypeS+".maxHealth"));
+
+		this.health = getMainClazz().getMobConfig().getDouble(mobTypeS+".maxHealth");
+		this.weapon = Material.getMaterial(getMainClazz().getMobConfig().getString(mobTypeS+".weapon"));
+		this.spawnLocation = spawnLoc;
+
+		System.out.println(this.name);
+		System.out.println(getHealth());
+		System.out.println(getMobWeapon());
+		System.out.println(getMobSpawnLocation());
+
+		spawn(spawnLoc, mobType);
+
+	}
+
+    public Main getMainClazz() {
+    	return mainClazz;
+	}
 
     public String getName() {
 	return name;
@@ -65,7 +85,7 @@ public abstract class CustomMob {
 
 	switch (type) {
 
-	case GRUNTZOMBIE:
+	case ZOMBIE:
 		Zombie zombie = (Zombie) Bukkit.getWorld("world").spawnEntity(location, EntityType.ZOMBIE);
 	    zombie.setMaxHealth(getHealth());
 	    zombie.setHealth(zombie.getMaxHealth());
@@ -75,8 +95,7 @@ public abstract class CustomMob {
 	    uuid = zombie.getUniqueId();
 	    break;
 
-	case SKELETONWARRIOR:
-		System.out.println("yoink");
+	case SKELETON:
 	    Skeleton skeleton = (Skeleton) Bukkit.getWorld("world").spawnEntity(location, EntityType.SKELETON);
 	    skeleton.setMaxHealth(getHealth());
 	    skeleton.setHealth(skeleton.getMaxHealth());
@@ -90,7 +109,7 @@ public abstract class CustomMob {
 	    uuid = skeleton.getUniqueId();
 	    break;
 
-	case GHOUL:
+	case PIGLIN:
 	    PigZombie piglin = (PigZombie) Bukkit.getWorld("world").spawnEntity(location, EntityType.ZOMBIFIED_PIGLIN);
 	    piglin.setMaxHealth(getHealth());
 	    piglin.setHealth(piglin.getMaxHealth());
@@ -103,15 +122,6 @@ public abstract class CustomMob {
 	    piglin.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
 	    uuid = piglin.getUniqueId();
 	    break;
-
-	case GIANTBOSS:
-		Giant giant = (Giant) Bukkit.getWorld("world").spawnEntity(location, EntityType.GIANT);
-		giant.setMaxHealth(getHealth());
-	    giant.setHealth(giant.getMaxHealth());
-	    giant.setCustomName(ChatColor.RED + getName());
-	    giant.setCustomNameVisible(true);
-	    giant.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), F.DARK_RED+"Sword of Destruction", null, false));
-	    uuid = giant.getUniqueId();
 	    
 	default:
 		System.out.println("sad yonk");
