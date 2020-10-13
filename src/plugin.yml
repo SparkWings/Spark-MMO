@@ -1,6 +1,6 @@
 name: SparkMMO
 main: org.jbltd.mmo.core.Main
-version: 1.0
+version: 0.1-ALPHA
 author: SparkWings
 
 commands:

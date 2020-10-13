@@ -121,7 +121,7 @@ public class GuildCommand implements CommandExecutor , Listener
 			Guild.phase2.add(player.getUniqueId());
 			player.sendMessage(PHASE2_MESSAGE);
 			// BEGIN PHASE 2
-			System.out.println("BEginning phase 2");
+			System.out.println("Beginning phase 2");
 
 		}
 
