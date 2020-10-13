@@ -30,9 +30,7 @@ public class Main extends JavaPlugin {
 
     public static List<Block> spawners = new ArrayList<>();
     /**
-     * TODO
-     * Mob Limits
-     * Guild Kicking
+     * TODO Guild Kicking
      */
 
     private List<String> configMaterials = new ArrayList<>();

@@ -26,7 +26,6 @@ public abstract class CustomMob implements Listener {
     private MobType mobtype;
     private Location spawnLocation;
 
-
     public CustomMob(Main main, MobType mobType, Location spawnLoc) {
         this.mainClazz = main;
         this.mobtype = mobType;

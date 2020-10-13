@@ -30,7 +30,7 @@ public class CustomMobHandler implements Listener {
     @EventHandler
     public void spawnMobs(UpdateEvent e) {
 
-        if (e.getType() == UpdateType.SLOWEST) {
+        if (e.getType() == UpdateType.MIN_01) {
 
             for (Block b : Main.spawners) {
                 switch (b.getType().toString()) {
