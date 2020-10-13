@@ -14,7 +14,7 @@ public class ItemFactory
 		ItemStack i = new ItemStack(item);
 		ItemMeta im = i.getItemMeta();
 		im.setDisplayName(DName);
-		im.spigot().setUnbreakable(true);
+		im.setUnbreakable(true);
 		if (hasLore == true)
 		{
 			im.setLore(lore);

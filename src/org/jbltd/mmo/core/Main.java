@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
@@ -24,7 +23,6 @@ import org.jbltd.mmo.guilds.GuildResponseCommands;
 import org.jbltd.mmo.guilds.InviteCommand;
 import org.jbltd.mmo.mobs.CustomMobHandler;
 
-import net.minecraft.server.v1_8_R3.MinecraftServer;
 
 public class Main extends JavaPlugin
 {
@@ -95,7 +93,7 @@ public class Main extends JavaPlugin
 				{
 					for (int y = 0; y < 128; y++)
 					{
-						if (w.getBlockAt(x, y, z).getType() == Material.WOOL)
+						if (w.getBlockAt(x, y, z).getType().toString().endsWith("WOOL"))
 						{
 
 							spawners.add(w.getBlockAt(x, y, z));
@@ -107,8 +105,6 @@ public class Main extends JavaPlugin
 			}
 
 		}
-
-		MinecraftServer.getServer().getPropertyManager().setProperty("debug", true);
 		
 	}
 

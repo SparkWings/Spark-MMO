@@ -1,17 +1,16 @@
 package org.jbltd.mmo.mobs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.CreatureType;
-import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.*;
 import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.ItemFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public abstract class CustomMob {
 
@@ -67,51 +66,51 @@ public abstract class CustomMob {
 	switch (type) {
 
 	case GRUNTZOMBIE:
-	    LivingEntity e = Bukkit.getWorld("world").spawnCreature(location, CreatureType.ZOMBIE);
-	    e.setMaxHealth(getHealth());
-	    e.setHealth(e.getMaxHealth());
-	    e.setCustomName(ChatColor.RED + getName());
-	    e.setCustomNameVisible(true);
-	    e.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
-	    uuid = e.getUniqueId();
+		Zombie zombie = (Zombie) Bukkit.getWorld("world").spawnEntity(location, EntityType.ZOMBIE);
+	    zombie.setMaxHealth(getHealth());
+	    zombie.setHealth(zombie.getMaxHealth());
+	    zombie.setCustomName(ChatColor.RED + getName());
+	    zombie.setCustomNameVisible(true);
+	    zombie.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = zombie.getUniqueId();
 	    break;
 
 	case SKELETONWARRIOR:
-	    LivingEntity e2 = Bukkit.getWorld("world").spawnCreature(location, CreatureType.SKELETON);
-	    e2.setMaxHealth(getHealth());
-	    e2.setHealth(e2.getMaxHealth());
-	    e2.setCustomName(ChatColor.RED + getName());
-	    e2.setCustomNameVisible(true);
-	    e2.getEquipment().setHelmet(ItemFactory.createItem(Material.GOLD_HELMET, "", null, false));
-	    e2.getEquipment().setChestplate(ItemFactory.createItem(Material.GOLD_CHESTPLATE, "", null, false));
-	    e2.getEquipment().setLeggings(ItemFactory.createItem(Material.GOLD_LEGGINGS, "", null, false));
-	    e2.getEquipment().setBoots(ItemFactory.createItem(Material.GOLD_BOOTS, "", null, false));
-	    e2.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
-	    uuid = e2.getUniqueId();
+	    Skeleton skeleton = (Skeleton) Bukkit.getWorld("world").spawnEntity(location, EntityType.SKELETON);
+	    skeleton.setMaxHealth(getHealth());
+	    skeleton.setHealth(skeleton.getMaxHealth());
+	    skeleton.setCustomName(ChatColor.RED + getName());
+	    skeleton.setCustomNameVisible(true);
+	    skeleton.getEquipment().setHelmet(ItemFactory.createItem(Material.GOLDEN_HELMET, "", null, false));
+	    skeleton.getEquipment().setChestplate(ItemFactory.createItem(Material.GOLDEN_CHESTPLATE, "", null, false));
+	    skeleton.getEquipment().setLeggings(ItemFactory.createItem(Material.GOLDEN_LEGGINGS, "", null, false));
+	    skeleton.getEquipment().setBoots(ItemFactory.createItem(Material.GOLDEN_BOOTS, "", null, false));
+	    skeleton.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = skeleton.getUniqueId();
 	    break;
 
 	case GHOUL:
-	    LivingEntity e3 = Bukkit.getWorld("world").spawnCreature(location, CreatureType.PIG_ZOMBIE);
-	    e3.setMaxHealth(getHealth());
-	    e3.setHealth(e3.getMaxHealth());
-	    e3.setCustomName(ChatColor.RED + getName());
-	    e3.setCustomNameVisible(true);
-	    e3.getEquipment().setHelmet(ItemFactory.createItem(Material.IRON_HELMET, "", null, false));
-	    e3.getEquipment().setChestplate(ItemFactory.createItem(Material.IRON_CHESTPLATE, "", null, false));
-	    e3.getEquipment().setLeggings(ItemFactory.createItem(Material.IRON_LEGGINGS, "", null, false));
-	    e3.getEquipment().setBoots(ItemFactory.createItem(Material.IRON_BOOTS, "", null, false));
-	    e3.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
-	    uuid = e3.getUniqueId();
+	    PigZombie piglin = (PigZombie) Bukkit.getWorld("world").spawnEntity(location, EntityType.ZOMBIFIED_PIGLIN);
+	    piglin.setMaxHealth(getHealth());
+	    piglin.setHealth(piglin.getMaxHealth());
+	    piglin.setCustomName(ChatColor.RED + getName());
+	    piglin.setCustomNameVisible(true);
+	    piglin.getEquipment().setHelmet(ItemFactory.createItem(Material.IRON_HELMET, "", null, false));
+	    piglin.getEquipment().setChestplate(ItemFactory.createItem(Material.IRON_CHESTPLATE, "", null, false));
+	    piglin.getEquipment().setLeggings(ItemFactory.createItem(Material.IRON_LEGGINGS, "", null, false));
+	    piglin.getEquipment().setBoots(ItemFactory.createItem(Material.IRON_BOOTS, "", null, false));
+	    piglin.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), "Evil Sword", null, false));
+	    uuid = piglin.getUniqueId();
 	    break;
 
 	case GIANTBOSS:
-		LivingEntity e4 = Bukkit.getWorld("world").spawnCreature(location, CreatureType.GIANT);
-		e4.setMaxHealth(getHealth());
-	    e4.setHealth(e4.getMaxHealth());
-	    e4.setCustomName(ChatColor.RED + getName());
-	    e4.setCustomNameVisible(true);
-	    e4.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), F.DARK_RED+"Sword of Destruction", null, false));
-	    uuid = e4.getUniqueId();
+		Giant giant = (Giant) Bukkit.getWorld("world").spawnEntity(location, EntityType.GIANT);
+		giant.setMaxHealth(getHealth());
+	    giant.setHealth(giant.getMaxHealth());
+	    giant.setCustomName(ChatColor.RED + getName());
+	    giant.setCustomNameVisible(true);
+	    giant.getEquipment().setItemInHand(ItemFactory.createItem(getMobWeapon(), F.DARK_RED+"Sword of Destruction", null, false));
+	    uuid = giant.getUniqueId();
 	    
 	default:
 		break;

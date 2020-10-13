@@ -1,16 +1,15 @@
 package org.jbltd.mmo.core.util;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.minecraft.server.v1_16_R2.IChatBaseComponent;
+import net.minecraft.server.v1_16_R2.PacketPlayOutChat;
+import net.minecraft.server.v1_16_R2.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_16_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent.ChatSerializer;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
-import net.minecraft.server.v1_8_R3.PacketPlayOutTitle;
-import net.minecraft.server.v1_8_R3.PacketPlayOutTitle.EnumTitleAction;
 
 public class UtilPacket {
 
@@ -23,20 +22,20 @@ public class UtilPacket {
     
     public static void sendActionBarMessage(Player player, String message) {
 
-	IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \"" + message + "\"}");
+	IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
 
-	PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
-	((CraftPlayer) player).getHandle().playerConnection.sendPacket(ppoc);
+	player.spigot().sendMessage(ChatMessageType.ACTION_BAR, (BaseComponent) cbc);
+
 
     }
 
     public static void sendTitleBarMessage(Player player, String title, String sub) {
 
-	IChatBaseComponent chatTitle = ChatSerializer.a("{\"text\": \"" + title + "\"}");
-	IChatBaseComponent chatSub = ChatSerializer.a("{\"text\": \"" + sub + "\"}");
+	IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + title + "\"}");
+	IChatBaseComponent chatSub = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + sub + "\"}");
 
-	PacketPlayOutTitle pt = new PacketPlayOutTitle(EnumTitleAction.TITLE, chatTitle);
-	PacketPlayOutTitle pst = new PacketPlayOutTitle(EnumTitleAction.SUBTITLE, chatSub);
+	PacketPlayOutTitle pt = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
+	PacketPlayOutTitle pst = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, chatSub);
 
 	((CraftPlayer) player).getHandle().playerConnection.sendPacket(pt);
 	((CraftPlayer) player).getHandle().playerConnection.sendPacket(pst);

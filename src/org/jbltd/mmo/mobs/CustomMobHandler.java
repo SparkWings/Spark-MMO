@@ -35,11 +35,11 @@ public class CustomMobHandler implements Listener
 			for (Block b : Main.spawners)
 			{
 
-				DyeColor d = DyeColor.getByData(b.getData());
 
-				switch (d)
+
+				switch (b.getType().toString())
 				{
-				case BLUE:
+				case "BLUE_WOOL":
 
 					int value = UtilMath.random(1, 6);
 
@@ -59,7 +59,7 @@ public class CustomMobHandler implements Listener
 
 					break;
 
-				case LIME:
+				case "LIME_WOOL":
 					// Skele
 
 					int value2 = UtilMath.random(1, 3);
@@ -77,14 +77,10 @@ public class CustomMobHandler implements Listener
 					}
 					break;
 
-				case YELLOW:
+				case "YELLOW_WOOL":
 
 					CustomPigZombie p = new CustomPigZombie(b.getLocation().add(0, 2, 0));
 					pig.add(p.getUniqueId());
-
-					break;
-
-				case RED:
 
 					break;
 
@@ -100,12 +96,11 @@ public class CustomMobHandler implements Listener
 			System.out.println("8");
 			for (Block b : Main.spawners)
 			{
-				DyeColor d = DyeColor.getByData(b.getData());
 
-				switch (d)
+				switch (b.getType().toString())
 				{
 
-				case RED:
+				case "RED_WOOL":
 					System.out.println("RED");
 					GiantBoss bz = new GiantBoss(b.getLocation());
 					giant.add(bz.getUniqueId());

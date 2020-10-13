@@ -91,7 +91,7 @@ public class UtilMath
 					i++;
 					BlockState bs = blocks.get(i);
 					bs.getBlock().setType(bs.getType());
-					bs.getBlock().setData(bs.getBlock().getData());
+					bs.getBlock().setBlockData(bs.getBlock().getBlockData());
 					if (effect)
 						bs.getBlock().getWorld().playEffect(bs.getLocation(), Effect.STEP_SOUND, bs.getBlock().getType());
 				} else
@@ -99,7 +99,7 @@ public class UtilMath
 					for (BlockState bs : blocks)
 					{
 						bs.getBlock().setType(bs.getType());
-						bs.getBlock().setData(bs.getBlock().getData());
+						bs.getBlock().setBlockData(bs.getBlock().getBlockData());
 					}
 					blocks.clear();
 					this.cancel();

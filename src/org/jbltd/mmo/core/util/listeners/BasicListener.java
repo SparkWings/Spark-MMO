@@ -136,7 +136,7 @@ public class BasicListener implements Listener {
 	    for (int x = cx; x < cx + 16; x++) {
 		for (int z = cz; z < cz + 16; z++) {
 		    for (int y = 0; y < 128; y++) {
-			if (w.getBlockAt(x, y, z).getType() == Material.WOOL) {
+			if (w.getBlockAt(x, y, z).getType().toString().endsWith("WOOL")) {
 
 			    Main.spawners.add(w.getBlockAt(x, y, z));
 
@@ -152,7 +152,7 @@ public class BasicListener implements Listener {
     
     @EventHandler
     public void onEntityInteract(EntityInteractEvent event) {
-    	if (event.getBlock().getType() == Material.SOIL && event.getEntity() instanceof Creature)
+    	if (event.getBlock().getType() == Material.DIRT && event.getEntity() instanceof Creature)
     		event.setCancelled(true);
     		}
     

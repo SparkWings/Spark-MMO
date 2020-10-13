@@ -35,7 +35,7 @@ public class Broadcast implements CommandExecutor {
 	    for (Player all : Bukkit.getOnlinePlayers()) {
 
 		all.sendMessage(F.WHITE + F.BOLD + player.getName() + " - " + F.AQUA + finals);
-		all.playSound(all.getLocation(), Sound.NOTE_PLING, 10F, 1F);
+		all.playSound(all.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 10F, 1F);
 
 	    }
 	    return false;
