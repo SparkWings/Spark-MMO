@@ -29,10 +29,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d306f7-8083-456d-9f6c-7617659aec14" name="Default Changelist" comment="Updating Spigot/MC imports to 1.16.3">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20200518.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_3_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_3_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MMO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MMO.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/armorsets/UndeadSet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMobHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/mobs/CustomMobHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/JSONUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/JSONUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UtilEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/UtilPacket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/listeners/BasicListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jbltd/mmo/core/util/listeners/BasicListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602631516925</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Code cleanup">
+      <created>1602632608037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602632608037</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,7 +176,8 @@
     <MESSAGE value="Updating Spigot/MC imports to 1.16.3" />
     <MESSAGE value="Added functionality for dynamic mob creation with config" />
     <MESSAGE value="Code cleanup; Mob armor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup; Mob armor" />
+    <MESSAGE value="Code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1602630617461">
@@ -170,38 +188,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602620813945" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602624072055">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603044443204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602624072055" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1603044443204" />
     <state x="441" y="234" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1602630490420">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="234" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602630490420" />
-    <state width="1323" height="158" key="GridCell.Tab.0.bottom" timestamp="1602631747373">
+    <state width="1323" height="158" key="GridCell.Tab.0.bottom" timestamp="1602632614951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="158" key="GridCell.Tab.0.bottom/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602631747373" />
-    <state width="1323" height="158" key="GridCell.Tab.0.center" timestamp="1602631747372">
+    <state width="1323" height="158" key="GridCell.Tab.0.bottom/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602632614951" />
+    <state width="1323" height="158" key="GridCell.Tab.0.center" timestamp="1602632614951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="158" key="GridCell.Tab.0.center/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602631747372" />
-    <state width="1323" height="158" key="GridCell.Tab.0.left" timestamp="1602631747372">
+    <state width="1323" height="158" key="GridCell.Tab.0.center/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602632614951" />
+    <state width="1323" height="158" key="GridCell.Tab.0.left" timestamp="1602632614951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="158" key="GridCell.Tab.0.left/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602631747372" />
-    <state width="1323" height="158" key="GridCell.Tab.0.right" timestamp="1602631747373">
+    <state width="1323" height="158" key="GridCell.Tab.0.left/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602632614951" />
+    <state width="1323" height="158" key="GridCell.Tab.0.right" timestamp="1602632614951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="158" key="GridCell.Tab.0.right/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602631747373" />
+    <state width="1323" height="158" key="GridCell.Tab.0.right/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602632614951" />
     <state x="251" y="18" key="SettingsEditor" timestamp="1602630600006">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="251" y="18" key="SettingsEditor/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602630600006" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602631518407">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602632609150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602631518407" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/-296.-1040.1920.1040@0.0.1366.728" timestamp="1602632609150" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602619566119">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

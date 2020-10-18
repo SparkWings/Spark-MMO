@@ -19,7 +19,6 @@ public class JSONUtil {
         JSONParser parser = new JSONParser();
 
         try {
-
             String path = Bukkit.getServer().getWorldContainer().getAbsolutePath() + "guilds.json";
 
             Object obj = parser.parse(new FileReader(path));
@@ -53,6 +52,7 @@ public class JSONUtil {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -97,5 +97,4 @@ public class JSONUtil {
             e.printStackTrace();
         }
     }
-
 }

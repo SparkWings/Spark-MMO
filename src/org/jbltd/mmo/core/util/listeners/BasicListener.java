@@ -1,6 +1,8 @@
 package org.jbltd.mmo.core.util.listeners;
 
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -13,8 +15,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.event.world.ChunkLoadEvent;
-import org.jbltd.mmo.core.Main;
 import org.jbltd.mmo.core.util.F;
 import org.jbltd.mmo.core.util.UpdateEvent;
 import org.jbltd.mmo.core.util.UpdateType;
@@ -24,19 +24,17 @@ public class BasicListener implements Listener {
 
     @EventHandler
     public void sendAnnouncement(UpdateEvent e) {
-
         if (e.getType() != UpdateType.MIN_08)
             return;
 
         Bukkit.broadcastMessage(F.info("Announcement", false, "Enjoying the game? Tell your friends!"));
-
     }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         e.setJoinMessage(null);
-        e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), 791, 66, 3098));
-        //UtilPacket.sendHealthMessage(e.getPlayer());
+        Bukkit.getWorld("world").getSpawnLocation();
+        e.getPlayer().teleport(Bukkit.getWorld("world").getSpawnLocation());
     }
 
     @EventHandler
@@ -115,31 +113,6 @@ public class BasicListener implements Listener {
         }
 
     }
-
-    @EventHandler
-    public void addParseSpawners(ChunkLoadEvent e) {
-
-        Chunk c = e.getChunk();
-        World w = c.getWorld();
-
-        int cx = c.getX() << 4;
-        int cz = c.getZ() << 4;
-        for (int x = cx; x < cx + 16; x++) {
-            for (int z = cz; z < cz + 16; z++) {
-                for (int y = 0; y < 128; y++) {
-                    if (w.getBlockAt(x, y, z).getType().toString().endsWith("WOOL")) {
-
-                        Main.spawners.add(w.getBlockAt(x, y, z));
-
-                    }
-                }
-            }
-
-        }
-
-
-    }
-
 
     @EventHandler
     public void onEntityInteract(EntityInteractEvent event) {
